@@ -1,4 +1,4 @@
-<form action="/../public/quote.php" method="post">
+<form action="quote.php" method="post">
     <fieldset>
         <div class="form-group">
             <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Enter symbol" type="text"/>

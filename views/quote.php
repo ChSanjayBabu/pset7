@@ -1,6 +1,7 @@
 <div>
     <?php
-        $form_price = number_format($price, 3, '.', '');
-        print("{$form_price}");
+        $price=$_SESSION["stock"];
+        $stock_price = number_format($price, 3, '.', '');
+        print("{$stock_price}");
     ?>
 </div>
