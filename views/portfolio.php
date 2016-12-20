@@ -1,3 +1,5 @@
+
+
 <table>
     <?php $Positions = $_SESSION["positions"];?>
     <tr>
