@@ -11,6 +11,10 @@
             $User_info[] = ["symbol" => $info["symbol"],
                             "value" => $info["value"]];
         }
+        if(empty($user_info))
+        {
+            apologize("No shares are available");
+        }
         render("sell_form.php",$User_info);
     }
     else
