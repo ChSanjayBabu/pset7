@@ -35,6 +35,16 @@
                 $_SESSION["id"],$_POST["symbol"],$_POST["shares"],$_POST["shares"]);
             CS50::query("UPDATE users SET cash = cash - ? WHERE id = ?",
                 $value,$_SESSION["id"]);
+                
+            date_default_timezone_set('Asia/Kolkata');
+    	    $time = date('H:i:s',time());
+    	    
+    	    $date = date("d-m-Y");
+    	    
+    	    $Info = lookup($_POST["symbol"]);
+    
+            CS50::query("INSERT INTO history (id, symbol, shares, stock, price, date, time)
+                "bought",$Info["price"],$date,$time );                
             redirect("index.php");
         }
     }
