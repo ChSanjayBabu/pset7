@@ -2,6 +2,7 @@
     // configuration
     require("../includes/config.php");
     
+    // if user reached page via GET (as by clicking a link or via redirect)
     if(empty($_POST["password"]))
     {
         render("pass_form.php");
@@ -13,6 +14,8 @@
     {
         $data = CS50::query("SELECT hash FROM users where id = ?",$_SESSION["id"]);
         // checks whether user entered a password
+        
+        // checks if the user enters valid info
         if (empty($_POST["password"]))
         {
             apologize("You must enter your password");
@@ -34,9 +37,12 @@
             apologize("you must retype correct password.");
         }
         else
-        {
+        {   
+            // query database to set users password
             CS50::query("UPDATE users SET hash = ? WHERE id = ?",
                 password_hash($_POST["new_pass"], PASSWORD_DEFAULT),$_SESSION["id"]);
+                
+            // renders to disp the change message
             render("pass_change.php");
         }
     }

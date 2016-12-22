@@ -33,7 +33,12 @@
         }
         else
         {
-            $result = CS50::query("INSERT IGNORE INTO users (username, hash, cash) VALUES(?, ?, 10000.0000)", $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT));
+            // query batabase  for inserting user info
+            $result = CS50::query("INSERT IGNORE INTO users (username, hash, cash)
+                VALUES(?, ?, 10000.0000)",$_POST["username"],
+                password_hash($_POST["password"], PASSWORD_DEFAULT));
+                
+            // checks if username already exists
             if ($result == 0)
             {
                 apologize("username already exists!");
