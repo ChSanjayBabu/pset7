@@ -6,15 +6,17 @@
         <th STYLE="Padding: 10px;"><?= "symbol" ?></th>
         <th STYLE="Padding: 10px;"><?= "shares" ?></th>
         <th STYLE="Padding: 10px;"><?= "price " ?></th>
-        <th STYLE="Padding: 10px;"><?= "values" ?></th>
+        <th STYLE="Padding: 10px;"><?= "value" ?></th>
     </tr>   
     <?php foreach ($Positions as $position): ?>
-
+        
+       <?php $price = number_format($position["price"], 2, '.', ''); ?>
+       <?php $value = number_format($position["value"], 2, '.', ''); ?>
         <tr>
             <td><?= $position["symbol"] ?></td>
             <td><?= $position["shares"] ?></td>
-            <td><?= $position["price"] ?></td>
-            <td><?= $position["value"] ?></td>
+            <td><?= $price ?></td>
+            <td><?= $value ?></td>
         </tr>
 
     <?php endforeach ?>

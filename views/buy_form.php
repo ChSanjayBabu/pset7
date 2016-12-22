@@ -5,11 +5,12 @@
             placeholder="Enter symbol" type="text"/>
         </div>
         <div class="form-group">
-            <input autocomplete="off" autofocus class="form-control" 
+            <input autocomplete="off" class="form-control" 
             name="shares"
             placeholder="number of shares" type="text"/>
         </div>
-        <button class="btn btn-default" type="submit">
+        <div class="form-group">
+            <button class="btn btn-default" type="submit">
                 <span aria-hidden="true" class="glyphicon glyphicon-log-in"></span>
                 Buy
             </button>
