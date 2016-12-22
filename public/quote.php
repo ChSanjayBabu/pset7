@@ -3,9 +3,15 @@
     require("../includes/config.php"); 
     
     // if user reached page via GET (as by clicking a link or via redirect)
-    if(empty($_POST["symbol"]))
+    if($_SERVER["REQUEST_METHOD"] == "GET")
     {
             render("quote_form.php");
+    }
+    
+    // checks if user enters symbol
+    if (empty($_POST["symbol"]))
+    {
+        apologize("please provide symbol");
     }
     
     
